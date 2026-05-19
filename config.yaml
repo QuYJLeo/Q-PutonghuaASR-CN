@@ -1,0 +1,40 @@
+app:
+  code: HS-ASR-3.0.0
+
+BASIC:
+  IS_SERVER: False  # 是否为服务端 ,True为服务端 启动需要授权，False为客户端
+  IS_CUDA: False  # 是否使用GPU
+  OFFLINE_LIMIT_SIZE: 2 # 离线缓存数量，设置为 0 则禁用对应的缓冲池（变为即时创建模式）
+  ONLINE_LIMIT_SIZE: 0 # 在线缓存数量，设置为 0 则禁用对应的缓冲池（变为即时创建模式）
+
+
+version:
+  release: 3.0.0
+  description: "v1.0:支持socketio实时转写. v2.0:支持http文件上传多进程转写, v3.0支持在线语音转离线"
+
+server: # socketio服务配置
+  host: 0.0.0.0
+  port: 6060
+  origins: '*'
+
+WEB: # web服务配置
+  PORT: 6800
+  HOST: 0.0.0.0
+
+FILE: # 文件服务配置
+  uploadFolderPath: AudioFile
+  ProcessNum: 2   # 处理音频文件进程数量
+  thresholdDay: 1   # 保存文件天数
+
+MODEL: # ASR离线模型配置，SEACO_NUM_THREADS值越大 翻译速度越快
+  SEACO_NUM_THREADS: 4
+  FSMN_NUM_THREADS: 1
+  CT_NUM_THREADS: 1
+
+
+auths:
+  - user: cq
+    session: 25
+    valid: 2050-12-31
+    token: mpqgazWyGwmsLuvl1evQw3XOA6PEyFgm
+    code: 3XmM0SuEsK/p4Rhzxka8nYWez5dQGu9XyBsMM2TeoySVg7Z4l4xjJ123oikBDVk40VsJutIilsyxrORlpdi5Z0CmpwjAhs2kWNZagsPCNL11H9u24Ck+FR0m5JIqm6xqxXfVbOXOGvBDb8a5rQnoVPWAANzfov05vfKeJfVLwFDJc9O+t5e0vKajWFC7ZWJ3f8/uPVwNaG+oAL73Vm4P+of/kilIOzy9k5FLr4o/Es0=
